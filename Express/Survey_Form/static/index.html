@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Survey Form</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+
+<h1>Enter your information</h1>
+<form action="/result" method='post'>
+	Your Name: <input type='text' name="name" id="name"></input><br><br>
+	Location: 
+	<select name="loc" id="loc">
+	  <option value="Mountain View">Mountain View</option>
+	  <option value="Washington">Washington</option>
+	  <option value="Africa">Africa</option>
+	  <option value="Australia">Australia</option>
+	</select><br><br>
+	Favorite Language:
+	<select name="lang" id="lang">
+	  <option value="Java">Java</option>
+	  <option value="MEAN">MEAN</option>
+	  <option value="Python">Python</option>
+	  <option value="C#">C#</option>
+	</select><br><br>
+	Comment (Optional): <textarea rows="4" cols="50" name="comment" id="comment"></textarea><br><br>
+	<input type="submit" value="Submit"></input>
+</form>
+</body>
+</html>
