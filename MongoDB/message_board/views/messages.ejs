@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Message Board</title>
+</head>
+<body>
+
+<br>
+<h1>The Message Board</h1>
+<hr>
+<br>
+
+
+ <% if(typeof(errors) != 'undefined' ) { %>
+     <% for (var x in errors) { %>
+      <h3><%= errors[x].message %></h3>
+     <% } %>
+ <% } %>
+ 
+ <br>
+   
+<form action="/messages" method='post'>
+	Name: <input type="text" name="msg_author" id="msg_author"></input><br><br>
+	Message: <textarea rows="4" cols="50" name="msg_content" id="msg_content"></textarea><br><br>	
+	<input type="submit" value="Post Message"></input>	<br><br> 	
+</form>
+
+<% if(messages && messages.length > 0){ %>	
+	<% for (let i = 0; i < messages.length; i++) {%>  
+		<p>Messager Name: <%= messages[i].msg_author %></p>
+		<p>Message: <%= messages[i].msg_content %></p>		
+		<label>Comments for this message</label>
+		<% for(let j = 0; j < messages[i].comments.length ;j++){ %>
+			<p>Commentor Name: <%= messages[i].comments[j].comment_author %></p>  
+			<p>Comment: <%= messages[i].comments[j].comment_content %></p>
+			<br>			
+		<% } %>
+		<form action="/comments/<%= messages[i]._id %>" method='post'>
+			Name: <input type="text" name="comment_author" id="comment_author"></input><br><br>
+			Comment: <textarea rows="4" cols="50" name="comment_content" id="comment_content"></textarea><br><br>	
+			<input type="submit" value="Post Comment"></input>	<br><br> 	
+		</form>
+		
+		<hr>
+	<%}%>
+<%}else{%>
+	<p>Currently there are no messages in the system</p>
+<%}%>
+ 
+
+ 
+</body>
+</html>
