@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Quotes App</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+
+<h1>Here are the awesome quotes!</h1>
+<br><br>
+<div>
+<% if(users){ %>	
+	<% for (let i = 0; i < users.length; i++) {%>
+		<p><%= users[i].quote %></p>
+		<p>     -<%= users[i].name %> at <%= users[i].created_date%></p>
+		<hr>
+	<%}%>
+<%}%>
+
+<a href="/">Go Home</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+use my_first_db
+db.createCollection('student')
+show dbs
+show collections
+
+
+> db.student.insert({name: "Troy", home_state: "Washington", city: "Seattle", lucky_number: 1, birthday:{month: 11, day: 11, year: 2000}})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({name: "Tess", home_state: "California", city: "San Jose", lucky_number: 9, birthday:{month: 10, day: 10, year: 2003}})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({name: "Tim", home_state: "California", city: "San Jose", lucky_number: 2, birthday:{month: 9, day: 9, year: 2003}})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({name: "Tim", home_state: "Washington", city: "Seattle", lucky_number: 15, birthday:{month: 6, day: 6, year: 2003}})
+WriteResult({ "nInserted" : 1 })
+
+ db.student.find({lucky_number: {$gt: 3}})
+ 
+ db.student.find({lucky_number: {$lte: 10}})
+ 
+ db.student.find( { $and: [ {lucky_number: {$gte: 1}}, {lucky_number: {$lte: 9}} ] } )
+ 
+ db.student.updateMany({}, {$set: {interests: ['coding', 'bruncb', 'MongoDB']}})
+ 
+ db.student.update({_id: ObjectId("59d7a152c04e54268ee67cac")}, {$addToSet: {interests: 'snowboarding'}})
+ 
+ db.student.update({_id: ObjectId("59d7943bc04e54268ee67ca8")}, {$addToSet: {interests: 'diving'}})
+ db.student.update({_id: ObjectId("59d79474c04e54268ee67ca9")}, {$addToSet: {interests: 'painting'}})
+ db.student.update({_id: ObjectId("59d794afc04e54268ee67caa")}, {$addToSet: {interests: 'swimming'}})
+ db.student.update({_id: ObjectId("59d7a28fc04e54268ee67cad")}, {$addToSet: {interests: 'flying'}})
+ 
+ db.student.update({_id: ObjectId("59d794d1c04e54268ee67cab")}, {$addToSet: {interests: 'taxes'}})
+ db.student.update({_id: ObjectId("59d794d1c04e54268ee67cab")}, {$pull: {interests: 'taxes'}})
+ 
+ db.student.remove({home_state: "Washington"})
+ 
+ db.student.remove({name: "Tim"})
+ 
+ 
+ db.student.remove({lucky_number: {$gte: 1}}, true)
+ 
+ db.student.updateMany({home_state: "Washington"}, {$set: {number_of_belts: 0}})
+ db.student.updateMany({home_state: "Washington"}, {$inc: {number_of_belts: 1}})
+ 
+ db.student.updateMany( {}, { $rename: { 'number_of_belts': 'belts_earned' } } )
+  
+ db.student.updateMany({}, { $currentDate: { lastModified: true } } )

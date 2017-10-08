@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Pets App</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+
+<h1>Pet Info</h1>
+<br><br>
+
+<% if(pets){ %>	
+	<p>Name:  <%= pets.name %></p>
+	<p>Breed:  <%= pets.breed %></p>
+	<p>Age:  <%= pets.age %></p>
+	<p>Size:  <%= pets.size %></p>
+	<p>Color:  <%= pets.color %></p>
+	<p>Gender:  <%= pets.gender %></p>	
+<%}%>
+
+<a href="/">Go Home</a>
+
+</body>
+</html>

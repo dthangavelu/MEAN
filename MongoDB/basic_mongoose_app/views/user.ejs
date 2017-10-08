@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>User Database</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+
+<h1>Welcome to the User Database</h1>
+<div>
+<% if(users){ %>
+<br><br>
+	<h3>List of Users</h3>
+	<% for (let i = 0; i < users.length; i++) {%>
+		<p><%= users[i].name %> | <%= users[i].age%></p>
+	<%}%>
+<%}%>
+
+
+</div>
+<br><br>
+<h3>Enter User Information</h3>
+<form action="/users" method='post'>
+	Name: <input type='text' name="name" id="name"></input><br><br>
+	Age: <input type='number' name="age" id="age"></input><br><br>
+	<input type="submit" value="Submit"></input>	 
+</form>
+</body>
+</html>
