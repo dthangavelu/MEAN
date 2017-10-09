@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Pets App</title>
+<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+
+<h1>Welcome to the Pets App</h1>
+
+<br>
+
+
+ <% if(typeof(errors) != 'undefined' ) { %>
+     <% for (var x in errors) { %>
+      <h3><%= errors[x].message %></h3>
+     <% } %>
+ <% } %>
+ 
+ <br>
+ 
+ <a href="/pets/new">Add New Pet</a>
+<br><br>
+<table>
+ <% if(pets && pets.length > 0){ %>	
+  <tr>
+    <th>Name</th>
+    <th>Breed</th>
+    <th>Age</th>
+	<!-- <th>Size</th> -->
+	<!-- <th>Color</th> -->
+	<!-- <th>Gender</th> -->
+	<th>Action</th>
+  </tr>
+  <%}%>
+  
+  <% if(pets && pets.length > 0){ %>	
+	<% for (let i = 0; i < pets.length; i++) {%>
+  <tr>
+    <td><%= pets[i].name %></td>
+    <td><%= pets[i].breed %></td>
+    <td><%= pets[i].age %></td>
+	<!-- <td><%= pets[i].size %></td> -->
+	<!-- <td><%= pets[i].color %></td> -->
+	<!-- <td><%= pets[i].gender %></td> -->
+	<th><a href="/pets/<%= pets[i]._id %>">Info</a> | <a href="/pets/edit/<%= pets[i]._id %>">Update</a> | <a href="/pets/destroy/<%= pets[i]._id %>">Delete</a></th>
+  </tr>
+	<%}%>
+<%}else{%>
+	<p>Currently there are no pets in the system</p>
+<%}%>
+ 
+</table> 
+ 
+</body>
+</html>
