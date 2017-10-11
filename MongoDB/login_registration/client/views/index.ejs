@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Login Registration App</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<body>
+
+<br>
+
+ <% if(typeof(errors) != 'undefined' ) { %>	
+     <% for (var x in errors) { %>
+      <h3><%= errors[x].message %></h3>
+     <% } %>
+ <% } %>
+
+ 
+ <br>
+<h1>Register</h1>
+<form action="/register" method='post'>
+	First Name: <input type='text' name="first_name" id="first_name" required></input><br><br>
+	Last Name: <input type='text' name="last_name" id="last_name" required></input><br><br>
+	Email: <input type='text' name="email" id="email" required></input><br><br>
+	Password: <input type='text' name="password" id="password" required></input><br><br>
+	Password Confirmation: <input type='text' name="password_confirmation" id="password_confirmation" required></input><br><br>	
+	Birthday: <input type='date' name="birthday" id="birthday" required></input><br><br>
+	
+	<input type="submit" value="Register"></input>	<br><br> 	
+</form>
+
+<h1>Login</h1>
+<form action="/login" method='post'>	
+	Email: <input type='text' name="email" id="email"></input><br><br>
+	Password: <input type='text' name="password" id="password"></input><br><br>
+	<input type="submit" value="Login"></input>	<br><br> 	
+</form>
+
+</body>
+</html>
