@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Mail App!
+  </h1>  
+</div>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Importance</th>
+    <th>Subject</th>
+    <th>Content</th>
+  </tr>
+  <tr *ngFor='let e of emails'>
+    <td>{{ e.email | lowercase }}</td>
+    <td *ngIf='e.importance'>High</td>
+    <td *ngIf='!e.importance'>Low</td>
+    <td>{{ e.subject }}</td>
+    <td>{{ e.content }}</td>
+  </tr>  
+</table>
+
