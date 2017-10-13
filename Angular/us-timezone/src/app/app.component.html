@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+<div class='wrapper'>
+
+  <div style="text-align:center">
+    <h1>
+      US Time Zone Display
+    </h1>  
+  </div>
+  <div class='main'>
+    <button (click)='timeData("America/Los_Angeles")'  [ngClass]="{ 'btnCol': selectedBtn==='America/Los_Angeles' }">PST</button>
+    <button (click)='timeData("America/Denver")' [ngClass]="{ 'btnCol': selectedBtn==='America/Denver' }">MST</button>
+    <button (click)='timeData("America/Chicago")' [ngClass]="{ 'btnCol': selectedBtn==='America/Chicago' }">CST</button>
+    <button (click)='timeData("America/New_York")' [ngClass]="{ 'btnCol': selectedBtn==='America/New_York' }">EST</button>
+    <button (click)='clearData("Clear")' [ngClass]="{ 'btnCol': selectedBtn==='Clear' }" >Clear</button>  
+  </div>
+  <div style="text-align:center">
+    <p>{{ myTimeZone }}</p>
+  </div>
+
+</div>
+
+
+
+
