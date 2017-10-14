@@ -1,0 +1,28 @@
+
+.ui_label{
+    font-weight: bold;
+}
+
+.ui_error{
+    color: red;
+    font-weight: bold;
+}
+
+button{        
+    width:20%;       
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 25px;
+    display: block;
+}
+
+.message{
+    border: 1px solid black;
+}
+
+.msgDiv{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 25px;
+    color: green;
+}
