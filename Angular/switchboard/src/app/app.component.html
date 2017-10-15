@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div [ngClass]="{'wrapper': true}">
+
+  <div style="text-align:center">
+    <h1>
+      Switchboard
+    </h1> 
+  </div>
+
+  <div *ngFor='let n of switch, let idx = index' [ngClass]="{'main': true}">
+    <div [ngClass]="{'divBackground': true}">
+        <button (click)='switchOp(idx)' *ngIf="switch[idx]" [ngClass]="{ 'on': true}" >ON</button>
+        <button (click)='switchOp(idx)' *ngIf="!switch[idx]" [ngClass]="{ 'off': true}" >OFF</button>
+    </div>
+  </div>  
+
+</div>

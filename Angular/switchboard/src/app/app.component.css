@@ -1,0 +1,35 @@
+
+.wrapper{
+    padding-top: 100px;
+}
+
+.main{
+    margin-left: 50px;    
+}
+
+.divBackground{
+    margin: 10px;
+    float: left;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    background-color: #A0522D	;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    width: 50px;
+    height: 50px;
+}
+
+.on{
+    background-color: #9ACD32;
+    color: black;
+}
+
+.off{
+    background-color: #FF6347	;
+    color: black;
+}
