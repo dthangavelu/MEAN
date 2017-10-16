@@ -1,0 +1,8 @@
+<fieldset>
+<legend>{{type}} Component</legend>
+<label for="power">Power Level: </label><label for="result">{{powerLevel}}</label>
+
+<p *ngIf="powerLevel > 9000 && powerLevel <= 20000">Over 9000</p>
+<p *ngIf="powerLevel > 20000 && powerLevel < 50000">Superlative</p>
+<p *ngIf="powerLevel >= 50000">The One</p>
+</fieldset>

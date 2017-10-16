@@ -1,0 +1,19 @@
+
+
+<div>
+
+<p>Power Component</p>
+<form (submit)="calculatePower()">
+  <label>Initial Power Level: </label>
+  <input type="number" name="power" [(ngModel)]="power" max="100" min="0">
+  <input type="submit" value="Calulcate Power">  
+</form>
+
+</div>
+
+<app-types [type]='type1' [powerLevel] = 'human'></app-types>
+<app-types [type]='type2' [powerLevel] = 'saiyan'></app-types>
+<app-types [type]='type3' [powerLevel] = 'superSaiyan'></app-types>
+<app-types [type]='type4' [powerLevel] = 'superSaiyanTwo'></app-types>
+<app-types [type]='type5' [powerLevel] = 'superSaiyanThree'></app-types>
+<app-types [type]='type6' [powerLevel] = 'superSaiyanFour'></app-types>
