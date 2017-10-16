@@ -1,0 +1,12 @@
+
+p{
+    font-weight: bold;
+}
+
+button{
+    display: block;
+    width: 175px;
+    height: 30px;
+    font-weight: bold;
+    margin: 10px;
+}

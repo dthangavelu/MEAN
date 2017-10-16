@@ -1,0 +1,13 @@
+
+<div>
+  <app-header-component></app-header-component>
+</div>
+
+<div [ngClass]="{ 'content': true }" >
+  <div [ngClass]="{ 'nav': true }" >
+      <app-nav-component></app-nav-component>
+  </div>
+  <div [ngClass]="{ 'main': true }" >
+      <app-main-component></app-main-component>
+  </div>
+</div>
