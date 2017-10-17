@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div [ngClass]="{ 'wrapper': true }">
+  <h1>
+    Add a Quote    
+  </h1>  
+  <form (submit)="addQuote()" #formData='ngForm' >
+    <textarea rows="4" cols="50"
+    name="content"
+    minlength="4"
+    required
+    [(ngModel)] = "quote.content"
+    #content = 'ngModel'
+    ></textarea>    
+    <label for="text_area_err" *ngIf="content.hasError('required')" [ngClass]="{ 'ui_error': true }">Quote is required</label>  
+    <label for="text_area_err" *ngIf="content.hasError('minlength')" [ngClass]="{ 'ui_error': true }">Quote should be at least 4 char long</label><br><br>
+
+    Author: 
+    <input 
+    type="text" 
+    name="author"
+    required
+    minlength="1"
+    [(ngModel)] = "quote.author"
+    #author = 'ngModel' >        
+    <label for="author_err" *ngIf="author.hasError('required')" [ngClass]="{ 'ui_error': true }">Author is required</label>  
+    <label for="author_err" *ngIf="author.hasError('minlength')" [ngClass]="{ 'ui_error': true }">Author should be at least 1 char long</label><br><br>
+
+    <!-- <input type="submit">  -->
+    <button [disabled]="!formData.valid">Add Quote</button> 
+  </form>
+  
+  <div>
+    <h1>Quotes List</h1>
+    <app-quotes-component [all_quotes]='all_quotes'></app-quotes-component>
+  </div>
+
+</div>
