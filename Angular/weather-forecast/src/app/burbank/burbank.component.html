@@ -1,0 +1,15 @@
+<h1>Burbank, CA</h1>
+
+<br><br>
+{{weather | json}}
+<br><br>
+
+<img src="https://res.cloudinary.com/twenty20/private_images/t_watermark-criss-cross-10/v1439320354000/photosp/ig-452971845153882111_30887462/stock-photo-city-walking-california-downtown-sunny-instagood-jj-jjforum-instahub-ig-452971845153882111_30887462.jpg" alt="Burbank, CA">
+<p>Himdity:  {{ weather.main.humidity}}</p>
+<p>Tempeature (Average): {{ weather.main.temp }}</p>
+<p>Temperature (High): {{ weather.main.temp_max }}</p>
+<p>Temperature (Low): {{ weather.main.temp_min }}</p>
+<p>Status: {{ weather.weather[0].description }}</p>
+
+<br>
+<a [routerLink]="['']">Go Back</a>
