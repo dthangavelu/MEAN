@@ -1,0 +1,38 @@
+<h1>Edit Product</h1>
+
+<form (submit)="onUpdate()" #formData='ngForm'>          
+
+    <label for="title" [ngClass]="{ 'ui_label': true }">*Title:</label>
+    <input 
+    type="text" 
+    name="title" 
+    required     
+    minlength="4"
+    [(ngModel)]="product.title"
+    #title='ngModel'
+    />
+    <label for="title_err" *ngIf="title.hasError('required')" [ngClass]="{ 'ui_error': true }">Title is required</label>
+    <label for="title_err" *ngIf="title.hasError('minlength')" [ngClass]="{ 'ui_error': true }">Min length is 4 char</label><br><br>
+
+    <label for="price" [ngClass]="{ 'ui_label': true }">*Price:</label>
+    <input 
+    type="number" 
+    name="price" 
+    required       
+    [(ngModel)]="product.price"
+    #price='ngModel'
+    />
+    <label for="price_err" *ngIf="price.hasError('required')" [ngClass]="{ 'ui_error': true }">Price is required</label><br><br>    
+    
+    <label for="img_url" [ngClass]="{ 'ui_label': true }">Image URL:</label>
+    <input 
+    type="text" 
+    name="img_url"       
+    [(ngModel)]="product.img_url"
+    #img_url='ngModel'
+    /><br><br>
+    
+    <button [disabled]="!formData.valid">Update</button>   
+    <button (click)="deleteProduct()">Delete</button> 
+    
+</form>

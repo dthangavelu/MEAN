@@ -1,0 +1,18 @@
+
+img{
+    width: 100px;
+    height: 100px;
+}
+
+.prodWrapper{
+    display: flex;
+    float: left;
+}
+
+.prodInfo{
+    border: 2px solid black;
+    width: 150px;
+    height: 250px;
+    padding: 5px;
+    margin: 5px;
+}
