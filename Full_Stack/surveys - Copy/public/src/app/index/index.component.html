@@ -1,0 +1,18 @@
+
+<h1>Survey</h1>
+
+<form (submit)="onSubmit()" #formData='ngForm'>
+  <label for="name" [ngClass]="{ 'ui_label': true }">*Name:</label>
+  <input 
+  type="text" 
+  name="name" 
+  required 
+  [(ngModel)]="user.name"
+  #name='ngModel'
+  />
+  <label for="name_err" *ngIf="name.hasError('required')" [ngClass]="{ 'ui_error': true }">Name is required</label>  
+  <label for="name_err" *ngIf="name.hasError('minlength')" [ngClass]="{ 'ui_error': true }">Name should be at least 2 char long      
+  </label><br><br>
+
+  <button [disabled]="!formData.valid">Enter</button> 
+</form>

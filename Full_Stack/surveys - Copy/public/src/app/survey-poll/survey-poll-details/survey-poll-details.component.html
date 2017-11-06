@@ -1,0 +1,45 @@
+
+<a (click)="goToPoll()">Go To Polls</a> <br><br>
+
+
+<h1>{{ surveys.survey_question }}</h1>
+<h3>Click the vote button to choose one</h3>
+
+<div>
+    
+    <table >
+      <tr>
+        <th>Option</th>
+        <th>Current Count of Votes</th>            
+        <th>Action</th>
+      </tr>
+
+      <tr>
+        <td>{{ surveys.option_1 }}</td>            
+        <td>{{ surveys.option_1_count }}</td>
+        <td><button (click)="increaseVoteCount(surveys._id, 'option_1_count')">Vote</button> </td>     
+      </tr> 
+      
+      <tr>
+        <td>{{ surveys.option_2 }}</td>            
+        <td>{{ surveys.option_2_count }}</td>            
+        <td><button (click)="increaseVoteCount(surveys._id, 'option_2_count')">Vote</button> </td>     
+      </tr>  
+
+      <tr>
+        <td>{{ surveys.option_3 }}</td>            
+        <td>{{ surveys.option_3_count }}</td>
+        <td><button (click)="increaseVoteCount(surveys._id, 'option_3_count')">Vote</button> </td>     
+      </tr> 
+
+      <tr>
+        <td>{{ surveys.option_4 }}</td>            
+        <td>{{ surveys.option_4_count }}</td>
+        <td><button (click)="increaseVoteCount(surveys._id, 'option_4_count')">Vote</button> </td>     
+      </tr> 
+
+      </table>
+  
+  </div>
+ 
+

@@ -1,0 +1,87 @@
+
+<h1>Current Polls</h1>
+
+<a (click)="logout()">Logout</a> <br><br>
+<a [routerLink]="['/new_survey', username]">Create a New Poll</a>
+
+<br><br>
+
+<label for="search" [ngClass]="{ 'ui_label': true }">Search:</label>
+<input type="text" [ngModel]="searchStr" (ngModelChange)="onDynSearch($event)" />
+<br><br>
+
+
+<span *ngIf="all_surveys">
+    <p *ngIf="all_surveys.length <= 0">Currently No Questions</p>
+</span>
+
+<div *ngIf="!user_search">
+
+  <table *ngIf="all_surveys.length > 0">
+      <tr>
+        <th>Name</th>
+        <th>Survey Question</th>
+        <th>Date Posted</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let survey of all_surveys; let idx=index">
+        <td>{{ survey.name }}</td>        
+        <td><a [routerLink]="['/survey_details', username, survey._id]">{{ survey.survey_question }}</a></td>        
+        <td>{{ survey.createdAt }}</td>
+        <td>
+          <a *ngIf="username === survey.name" (click)="deleteSurvey(survey._id)">Delete</a>        
+        </td>
+      </tr>      
+    </table>
+    
+</div>
+
+<div *ngIf="user_search">
+    <p *ngIf="filtered_surveys.length <= 0">Currently No Questions or Name match your search criteria</p>
+
+  <table *ngIf="filtered_surveys.length > 0">
+      <tr>
+          <th>Name</th>
+          <th>Survey Question</th>
+          <th>Date Posted</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let survey of filtered_surveys; let idx=index">
+          <td>{{ survey.name }}</td>
+          <td><a [routerLink]="['/survey_details', username, survey._id]">{{ survey.survey_question }}</a></td>        
+          <td>{{ survey.createdAt }}</td>
+          <td>
+            <a *ngIf="username === survey.name" (click)="deleteSurvey(survey._id)">Delete</a>        
+          </td>
+        </tr>       
+    </table>
+
+</div>
+
+serach string: {{ searchStr }}
+
+<div>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Survey Question</th>
+            <th>Date Posted</th>
+            <th>Action</th>
+          </tr>
+          <div  *ngFor="let survey of all_surveys; let idx=index">
+          <tr *ngIf="(survey.name.toLowerCase()).includes(searchStr.toLowerCase())">            
+                <td>{{ survey.name }}</td>
+                <td><a [routerLink]="['/survey_details', username, survey._id]">{{ survey.survey_question }}</a></td>        
+                <td>{{ survey.createdAt }}</td>
+                <td>
+                  <a *ngIf="username === survey.name" (click)="deleteSurvey(survey._id)">Delete</a>        
+                </td>
+          </tr>  
+        
+        </div>   
+      </table>
+
+</div>
+ 
+

@@ -1,0 +1,81 @@
+
+<h1>Put the question and options here</h1>
+
+<a (click)="cancel()">Cancel</a> <br><br>
+
+
+<br><br>
+<label for="validation_error" *ngIf="validation_error.length > 0">{{ validation_error }}</label>
+<br><br>
+
+<form (submit)="onCreateNewPoll()" #formData='ngForm'>
+
+  <label for="survey_question" [ngClass]="{ 'ui_label': true }">*Question:</label>
+  <input 
+  type="text" 
+  name="survey_question" 
+  required   
+  minlength="8"  
+  [(ngModel)]="surveys.survey_question"
+  #survey_question='ngModel'
+  />
+  <label for="survey_question_err" *ngIf="survey_question.hasError('required')" [ngClass]="{ 'ui_error': true }">Question is required</label>
+  <label for="survey_question_err" *ngIf="survey_question.hasError('minlength')" [ngClass]="{ 'ui_error': true }">Question should be at least 8 char long</label>     
+<br><br>
+
+  <label for="option_1" [ngClass]="{ 'ui_label': true }">*Option 1:</label>
+  <input 
+  type="text" 
+  name="option_1" 
+  required   
+  minlength="3"  
+  [(ngModel)]="surveys.option_1"
+  #option_1='ngModel'
+  />
+  <label for="option_1_err" *ngIf="option_1.hasError('required')" [ngClass]="{ 'ui_error': true }">Option 1 is required</label>
+  <label for="option_1_err" *ngIf="option_1.hasError('minlength')" [ngClass]="{ 'ui_error': true }">Option 1 should be at least 3 char long</label>     
+  <br><br>
+
+  <label for="option_2" [ngClass]="{ 'ui_label': true }">*Option 2:</label>
+  <input 
+  type="text" 
+  name="option_2" 
+  required   
+  minlength="3"  
+  [(ngModel)]="surveys.option_2"
+  #option_2='ngModel'
+  />
+  <label for="option_2_err" *ngIf="option_2.hasError('required')" [ngClass]="{ 'ui_error': true }">Option 2 is required</label>
+  <label for="option_2_err" *ngIf="option_2.hasError('minlength')" [ngClass]="{ 'ui_error': true }">Option 2 should be at least 3 char long</label>     
+  <br><br>
+
+  <label for="option_3" [ngClass]="{ 'ui_label': true }">*Option 3:</label>
+  <input 
+  type="text" 
+  name="option_3" 
+  required   
+  minlength="3"  
+  [(ngModel)]="surveys.option_3"
+  #option_3='ngModel'
+  />
+  <label for="option_3_err" *ngIf="option_3.hasError('required')" [ngClass]="{ 'ui_error': true }">Option 3 is required</label>
+  <label for="option_3_err" *ngIf="option_3.hasError('minlength')" [ngClass]="{ 'ui_error': true }">Option 3 should be at least 3 char long</label>     
+  <br><br>
+
+  <label for="option_4" [ngClass]="{ 'ui_label': true }">*Option 4:</label>
+  <input 
+  type="text" 
+  name="option_4" 
+  required   
+  minlength="3"  
+  [(ngModel)]="surveys.option_4"
+  #option_4='ngModel'
+  />
+  <label for="option_4_err" *ngIf="option_4.hasError('required')" [ngClass]="{ 'ui_error': true }">Option 4 is required</label>
+  <label for="option_4_err" *ngIf="option_4.hasError('minlength')" [ngClass]="{ 'ui_error': true }">Option 4 should be at least 3 char long</label>       
+  <br><br>
+
+  <button [disabled]="!formData.valid">Create Poll</button> 
+  
+</form>
+

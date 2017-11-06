@@ -1,0 +1,9 @@
+
+.ui_label{
+    font-weight: bold;
+}
+
+.ui_error{
+    color: red;
+    font-weight: bold;
+}
